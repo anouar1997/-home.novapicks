@@ -7,11 +7,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Preparing Your Offer...</title>
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+<title>Preparing Your Offer...</title>
+
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -19,11 +23,26 @@
     box-sizing:border-box;
 }
 
+
+/* =========================
+   PAGE
+========================= */
+
 body{
 
-    background:#ffffff;
+    min-height:100vh;
 
-    font-family:Arial, Helvetica, sans-serif;
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f5f8fc 100%
+    );
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
     display:flex;
 
@@ -31,175 +50,337 @@ body{
 
     align-items:center;
 
-    min-height:100vh;
-
     text-align:center;
 
     overflow:hidden;
 
 }
 
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
 .container{
 
     width:90%;
 
-    max-width:500px;
+    max-width:540px;
 
-    animation:fadeIn 0.5s ease-out;
+    padding:30px 20px;
+
+    animation:
+    pageAppear
+    0.4s
+    ease-out
+    forwards;
 
 }
 
-/* LOGO */
+
+/* =========================
+   BIG PROFESSIONAL LOGO
+========================= */
 
 .logo{
 
-    width:240px;
+    width:330px;
 
-    max-width:85%;
+    max-width:95%;
 
     height:auto;
 
-    margin-bottom:30px;
+    display:block;
 
-    animation:logoAppear 0.6s ease-out;
+    margin:
+    0 auto
+    35px;
+
+    opacity:0;
+
+    transform:
+    scale(0.80);
+
+    filter:
+
+    drop-shadow(
+    0 10px 22px
+    rgba(
+    0,
+    0,
+    0,
+    0.12
+    )
+    );
+
+    animation:
+
+    logoIntro
+    0.45s
+    cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+    )
+    forwards,
+
+    logoFloat
+    2.2s
+    ease-in-out
+    0.45s
+    infinite;
 
 }
 
-/* TITLE */
+
+/* =========================
+   TITLE
+========================= */
 
 h1{
 
-    font-size:32px;
-
     color:#202b38;
 
-    margin-bottom:14px;
+    font-size:32px;
 
     font-weight:700;
 
+    line-height:1.2;
+
+    margin-bottom:14px;
+
 }
 
-/* DESCRIPTION */
+
+/* =========================
+   TEXT
+========================= */
 
 p{
+
+    color:#667085;
 
     font-size:17px;
 
     line-height:1.5;
 
-    color:#667085;
-
     margin-bottom:30px;
 
 }
 
-/* LOADING CIRCLE */
+
+/* =========================
+   LOADING CIRCLE
+========================= */
 
 .loader{
 
-    width:62px;
+    width:58px;
 
-    height:62px;
-
-    border:6px solid #e8edf2;
-
-    border-top:6px solid #1976d2;
-
-    border-radius:50%;
-
-    animation:spin 0.8s linear infinite;
+    height:58px;
 
     margin:auto;
 
+    border:
+
+    6px solid
+    #e5ebf2;
+
+    border-top:
+
+    6px solid
+    #1976d2;
+
+    border-radius:50%;
+
+    animation:
+
+    spin
+    0.65s
+    linear
+    infinite;
+
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
 
     position:fixed;
 
-    bottom:22px;
+    bottom:20px;
 
     left:0;
 
     right:0;
 
-    padding:0 20px;
-
-    font-size:13px;
+    padding:
+    0 20px;
 
     color:#98a2b3;
 
+    font-size:13px;
+
+    line-height:1.4;
+
 }
 
-/* ANIMATIONS */
 
-@keyframes spin{
+/* =========================
+   PAGE ANIMATION
+========================= */
+
+@keyframes pageAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(
+        10px
+        );
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(
+        0
+        );
+
+    }
+
+}
+
+
+/* =========================
+   LOGO INTRO
+========================= */
+
+@keyframes logoIntro{
 
     0%{
 
-        transform:rotate(0deg);
+        opacity:0;
+
+        transform:
+        scale(
+        0.80
+        );
+
+    }
+
+    70%{
+
+        opacity:1;
+
+        transform:
+        scale(
+        1.06
+        );
 
     }
 
     100%{
 
-        transform:rotate(360deg);
+        opacity:1;
+
+        transform:
+        scale(
+        1
+        );
 
     }
 
 }
 
-@keyframes fadeIn{
+
+/* =========================
+   SOFT LOGO FLOAT
+========================= */
+
+@keyframes logoFloat{
+
+    0%,
+    100%{
+
+        transform:
+
+        translateY(
+        0
+        )
+
+        scale(
+        1
+        );
+
+    }
+
+    50%{
+
+        transform:
+
+        translateY(
+        -5px
+        )
+
+        scale(
+        1.015
+        );
+
+    }
+
+}
+
+
+/* =========================
+   LOADER ROTATION
+========================= */
+
+@keyframes spin{
 
     from{
 
-        opacity:0;
-
-        transform:translateY(12px);
+        transform:
+        rotate(
+        0deg
+        );
 
     }
 
     to{
 
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-@keyframes logoAppear{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(0.92);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
+        transform:
+        rotate(
+        360deg
+        );
 
     }
 
 }
 
-/* MOBILE */
 
-@media(max-width:480px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(
+max-width:480px
+){
 
     .logo{
 
-        width:210px;
+        width:290px;
 
-        margin-bottom:25px;
+        margin-bottom:28px;
 
     }
 
@@ -215,31 +396,90 @@ p{
 
     }
 
+    .loader{
+
+        width:54px;
+
+        height:54px;
+
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(
+max-width:350px
+){
+
+    .logo{
+
+        width:260px;
+
+    }
+
+    h1{
+
+        font-size:24px;
+
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-<img 
+
+<!-- BIG ANIMATED LOGO -->
+
+<img
+
 src="https://d3q7porexqyyxj.cloudfront.net/sites/5009/aws-logo.png"
+
 alt="Americas Window Solutions"
+
 class="logo"
+
 >
 
-<h1>Preparing Your Offer...</h1>
+
+<!-- TITLE -->
+
+<h1>
+
+Preparing Your Offer...
+
+</h1>
+
+
+<!-- DESCRIPTION -->
 
 <p>
+
 Please wait while we securely prepare your personalized offer.
+
 </p>
+
+
+<!-- LOADER -->
 
 <div class="loader"></div>
 
+
 </div>
+
+
+<!-- FOOTER -->
 
 <div class="footer">
 
@@ -247,17 +487,32 @@ Please do not close this page. You’ll be redirected automatically.
 
 </div>
 
+
 <script>
 
-setTimeout(function(){
+
+/* =========================
+   FAST REDIRECT
+========================= */
+
+setTimeout(
+function(){
 
 window.location.replace(
+
 "https://r9ebmun.com/?E=2Z%2ffFsY0y73kpfwizdG5uy9GOm3iJU0T&s1="
+
 );
 
-},400);
+},
+
+450
+
+);
+
 
 </script>
+
 
 </body>
 
